@@ -1,0 +1,179 @@
+/* styles/main.css */
+
+/* Style for index.html */
+body {
+    background-color: dimgrey; /* Set background color to red */
+    color: white; /* Set text color to white */
+}
+
+header {
+    padding: 20px;
+    color: black;
+    position: relative; /* Needed for absolute positioning of pseudo-element */
+}
+
+
+/* Rainbow wave animation */
+@keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Apply rainbow wave to header */
+.rainbow-wave {
+    background: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+    background-size: 1400% 100%;
+    animation: rainbow 10s infinite linear;
+}
+
+label {
+    color: white;
+    float: left;
+    width: 8em;
+    font-weight: bold;
+    text-align: left;
+}
+
+input {
+    width: 15em;
+    margin: 0 0 .5em 1em;
+}
+
+/* Style for navigation menu */
+nav {
+    position: relative; /* Needed for z-index */
+    z-index: 1; /* Ensure navigation menu stays above rainbow wave */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: black;
+    text-decoration: none;
+}
+
+nav ul li a.current {
+    font-weight: bold;
+    border-bottom: 2px solid black;
+}
+
+/* Add your CSS styles here */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td {
+    border: 1px solid blue; /* Change 'blue' to any color you like */
+    padding: 8px;
+    text-align: left;
+}
+
+/* Two-column layout */
+.history-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.history {
+    flex: 1 1 calc(50% - 20px);
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.image-container {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    overflow: hidden; /* Ensure images don't overflow */
+}
+
+.image-container img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    opacity: 0; /* Initially hide all images */
+    animation: fade 8s infinite; /* Apply fade animation */
+}
+
+.image-container img:nth-child(2) {
+    animation-delay: 4s; /* Delay the animation for the second image */
+}
+
+@keyframes fade {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Responsive styling */
+@media screen and (max-width: 768px) {
+    .rentals-container {
+        flex-direction: column;
+    }
+
+    .rental {
+        flex: 1 1 100%;
+    }
+}
+
+/* general layout (960px to 2024px) */
+@media only screen and (max-width: 2024px) { 
+    #mobile_menu { display: none; }    
+}
+
+/* tablet portrait layout (768px to 959px) */
+@media only screen and (max-width: 959px) { 
+    #mobile_menu { display: none; } 
+}
+
+/* mobile landscape layout (480px to 767px) */ 
+@media only screen and (max-width: 767px) { 
+    #mobile_menu { display: block; }
+    #nav_menu { display: none; }
+    header h2 { font-size: 1.375em; }        /*  22 ÷ 16    */ 
+    header h3 { font-size: .8125em; }       /*   13 ÷ 16   */ 
+    p { font-size: .875em; }               /*    14 ÷ 16  */ 
+    article h1, main h2, aside h2
+        { font-size: 1em; }                 /* base font size */ 
+    aside li { font-size: .875em; }         /* 14 ÷ 16       */
+    
+}
+
+/* mobile portrait layout (479px or less) */ 
+@media only screen and (max-width: 479px) { 
+    #mobile_menu { display: block; }
+    #nav_menu { display: none; }
+    header h2 { font-size: 1.375em; }   /* 22 ÷ 16 */ 
+    header h3 { font-size: .8125em; }   /* 13 ÷ 16 */ 
+    p { font-size: .875em; }            /* 14 ÷ 16 */ 
+    article h1, main h2, aside h2 
+        { font-size: 1em; }             /* base font size */ 
+    aside li { font-size: .875em; }     /* 14 ÷ 16 */ 
+}
+
+footer {
+    background-color: black; /* Set background color to gray */
+    color: white; /* Set text color to white */
+    left: 0; /* Align to left side of the viewport */
+    bottom: 0; /* Align to bottom of the viewport */
+    width: 100%; /* Make the footer span the entire width */
+    padding: 6px; /* Add padding for better readability */
+    text-align: center; /* Center-align the text */
+}
